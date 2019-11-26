@@ -25,8 +25,6 @@ class HuffmanCoding:
             del self.data[key]
             self.total = self.total - val
             node.right = Node(self.total)
-            # if self.total in self.data.values():
-            #     self.table[key] = self.curr + '1'
             self.curr = self.curr + '1'
             self.add_nodes(node.right)
 
@@ -42,20 +40,22 @@ class HuffmanCoding:
     def calculate_cr(self):
         original_bits = sum([self.temp[i] * 8 for i in self.temp])
         after_compression = sum(
-            [len(self.table[i])*i for i in self.table])
+            [len(self.table[i])*self.temp[i] for i in self.table])
+        print(original_bits, after_compression)
         return original_bits/after_compression
 
 
-data = {
-    1: 144,
-    2: 20,
-    3: 8,
-    4: 100,
-    5: 25
-}
+if __name__ == '__main__':
 
+    data = {
+        1: 144,
+        2: 20,
+        3: 8,
+        4: 100,
+        5: 25
+    }
 
-hc = HuffmanCoding(data)
-hc.print_tree()
-hc.print_table()
-print('Compression ratio: {}'.format(round(hc.calculate_cr(), 2)))
+    hc = HuffmanCoding(data)
+    hc.print_tree()
+    hc.print_table()
+    print('Compression ratio: {}'.format(round(hc.calculate_cr(), 2)))
