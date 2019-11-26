@@ -43,3 +43,5 @@ Compression ratio = Number of bits used before compression / = 2376 / 531  = 4.4
                     Number of bits used after compresssion
 
 ```
+### How to Use?
+Pass the data in the form of a dictionary to the HuffmanCoding object and call whatever function you want to use.
